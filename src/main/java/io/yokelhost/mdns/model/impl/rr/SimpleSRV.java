@@ -6,8 +6,8 @@ import io.yokelhost.mdns.model.DNSType;
 import io.yokelhost.mdns.model.rr.SRV;
 
 public class SimpleSRV extends AbstractDNSRecord implements SRV {
-    public SimpleSRV(DNSName name, DNSType type, DNSClass cls, long ttl, int prio, int weight, int port, DNSName target) {
-        super(name, type, cls, ttl);
+    public SimpleSRV(DNSName name, long ttl, int prio, int weight, int port, DNSName target) {
+        super(name, DNSType.SRV, DNSClass.IN, ttl);
         this.prio = prio;
         this.weight = weight;
         this.port = port;

@@ -9,8 +9,8 @@ import io.yokelhost.mdns.model.rr.AAAA;
 
 public class SimpleAAAA extends AbstractDNSRecord implements AAAA {
 
-    public SimpleAAAA(DNSName name, DNSType type, DNSClass cls, long ttl, Inet6Address address) {
-        super(name, type, cls, ttl);
+    public SimpleAAAA(DNSName name, long ttl, Inet6Address address) {
+        super(name, DNSType.AAAA, DNSClass.IN, ttl);
         this.address = address;
     }
 

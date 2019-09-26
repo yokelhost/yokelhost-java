@@ -6,8 +6,8 @@ import io.yokelhost.mdns.model.DNSType;
 import io.yokelhost.mdns.model.rr.TXT;
 
 public class SimpleTXT extends AbstractDNSRecord implements TXT {
-    public SimpleTXT(DNSName name, DNSType type, DNSClass cls, long ttl, byte[] txt) {
-        super(name, type, cls, ttl);
+    public SimpleTXT(DNSName name, long ttl, byte[] txt) {
+        super(name, DNSType.TXT, DNSClass.IN, ttl);
         this.txt = txt;
     }
 

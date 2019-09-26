@@ -6,8 +6,8 @@ import io.yokelhost.mdns.model.DNSType;
 import io.yokelhost.mdns.model.rr.CNAME;
 
 public class SimpleCNAME extends AbstractDNSRecord implements CNAME {
-    public SimpleCNAME(DNSName name, DNSType type, DNSClass cls, long ttl, DNSName cname) {
-        super(name, type, cls, ttl);
+    public SimpleCNAME(DNSName name, long ttl, DNSName cname) {
+        super(name, DNSType.CNAME, DNSClass.IN, ttl);
         this.cname = cname;
     }
 

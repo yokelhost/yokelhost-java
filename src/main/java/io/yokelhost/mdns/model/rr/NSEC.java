@@ -1,11 +1,11 @@
 package io.yokelhost.mdns.model.rr;
 
+import java.util.List;
+
 import io.yokelhost.mdns.model.DNSName;
 import io.yokelhost.mdns.model.DNSType;
 
-public interface DNSRecord {
-    DNSName name();
-    DNSType type();
-    int cls();
-    long ttl();
+public interface NSEC extends DNSRecord {
+    DNSName next();
+    List<DNSType> types();
 }

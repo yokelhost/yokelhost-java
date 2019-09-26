@@ -7,8 +7,8 @@ import io.yokelhost.mdns.model.rr.PTR;
 
 public class SimplePTR extends AbstractDNSRecord implements PTR {
 
-    public SimplePTR(DNSName name, DNSType type, DNSClass cls, long ttl, DNSName ptrName) {
-        super(name, type, cls, ttl);
+    public SimplePTR(DNSName name, long ttl, DNSName ptrName) {
+        super(name, DNSType.PTR, DNSClass.IN, ttl);
         this.ptrName = ptrName;
     }
 

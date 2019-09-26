@@ -1,13 +1,11 @@
 package io.yokelhost.mdns.model.impl.rr;
 
-import io.netty.handler.codec.dns.AbstractDnsMessage;
-import io.yokelhost.mdns.model.DNSClass;
 import io.yokelhost.mdns.model.DNSName;
 import io.yokelhost.mdns.model.DNSType;
 import io.yokelhost.mdns.model.rr.DNSRecord;
 
 public class AbstractDNSRecord implements DNSRecord {
-    protected AbstractDNSRecord(DNSName name, DNSType type, DNSClass cls, long ttl) {
+    protected AbstractDNSRecord(DNSName name, DNSType type, int cls, long ttl) {
         this.name = name;
         this.type = type;
         this.cls = cls;
@@ -24,7 +22,7 @@ public class AbstractDNSRecord implements DNSRecord {
     }
 
     @Override
-    public DNSClass cls() {
+    public int cls() {
         return this.cls;
     }
 
@@ -37,7 +35,7 @@ public class AbstractDNSRecord implements DNSRecord {
 
     private final DNSType type;
 
-    private final DNSClass cls;
+    private final int cls;
 
     private final long ttl;
 }

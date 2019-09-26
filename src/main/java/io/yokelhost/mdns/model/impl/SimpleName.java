@@ -1,5 +1,6 @@
 package io.yokelhost.mdns.model.impl;
 
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -11,6 +12,15 @@ import io.yokelhost.mdns.model.DNSName;
 public class SimpleName implements DNSName {
 
     public SimpleName() {
+    }
+
+    public SimpleName(String name) {
+        String[] parts = name.split("\\.");
+        for (String part : parts) {
+            if ( ! parts.equals("")) {
+                addLabel(new SimpleLabel(part.getBytes(Charset.forName("UTF8"))));
+            }
+        }
     }
 
     public void addLabel(SimpleLabel label) {
@@ -28,6 +38,14 @@ public class SimpleName implements DNSName {
     @Override
     public List<Label> labels() {
         return Collections.unmodifiableList(this.labels);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if ( obj instanceof DNSName ) {
+            return this.toString().equals(obj.toString());
+        }
+        return false;
     }
 
     @Override
